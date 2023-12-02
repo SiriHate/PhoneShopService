@@ -23,3 +23,57 @@ CREATE TABLE phone_shop (
 );
 ```
 4. Launch the application using the `PhoneShopApplication` class.
+
+## Examples of HTTP requests
+
+**Create new phone:**
+```
+POST /api/v1/phones HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+Content-Length: 136
+
+{ 
+  "manufacturer": "Samsung",
+  "model": "Galaxy",
+  "storageSize": 512,
+  "color": "Black",
+  "cost": 1200,
+  "quantity": 10
+}
+```
+
+**Get phone by ID:**
+```
+GET /api/v1/phones/1 HTTP/1.1
+Host: localhost:8080
+```
+
+**Get all phones:**
+```
+GET /api/v1/phones HTTP/1.1
+Host: localhost:8080
+```
+
+**Update phone info by ID:**
+```
+PUT /api/v1/phones/1 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+Content-Length: 136
+
+{ 
+  "manufacturer": "Apple",
+  "model": "Iphone 13",
+  "storageSize": 512,
+  "color": "Black",
+  "cost": 1250,
+  "quantity": 5
+}
+```
+
+**Delete phone by ID:**
+```
+DELETE /api/v1/phones/1 HTTP/1.1
+Host: localhost:8080
+```
