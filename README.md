@@ -22,4 +22,4 @@ CREATE TABLE phone_shop (
     quantity INT
 );
 ```
-4. Launch the application using the PhoneShopApplication class.
+4. Launch the application using the `PhoneShopApplication` class.
