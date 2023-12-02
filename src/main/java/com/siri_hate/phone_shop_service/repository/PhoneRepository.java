@@ -1,4 +1,4 @@
-package com.siri_hate.phone_shop_service.dao;
+package com.siri_hate.phone_shop_service.repository;
 
 import com.siri_hate.phone_shop_service.entity.Phone;
 import org.springframework.data.jpa.repository.JpaRepository;

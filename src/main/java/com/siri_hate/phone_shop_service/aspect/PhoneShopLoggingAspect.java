@@ -1,13 +1,12 @@
 package com.siri_hate.phone_shop_service.aspect;
 
+import lombok.extern.log4j.Log4j2;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 /**
  * Aspect-oriented programming (AOP) component for logging method invocations in the Phone Shop service application.
@@ -15,14 +14,13 @@ import org.apache.logging.log4j.Logger;
  */
 @Component
 @Aspect
+@Log4j2
 public class PhoneShopLoggingAspect {
-
-    private static final Logger logger = LogManager.getLogger(PhoneShopLoggingAspect.class);
 
     /**
      * Pointcut definition for DAO methods.
      */
-    @Pointcut("execution(* com.siri_hate.phone_shop_service.dao..*(..))")
+    @Pointcut("execution(* com.siri_hate.phone_shop_service.repository..*(..))")
     private void daoMethods() {}
 
     /**
@@ -48,9 +46,9 @@ public class PhoneShopLoggingAspect {
     public Object aroundAllDAOMethodsAdvice(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         MethodSignature methodSignature = (MethodSignature) proceedingJoinPoint.getSignature();
         String methodName = methodSignature.getName();
-        logger.info("DAO method: {} - was called", methodName);
+        log.info("DAO method: {} - was called", methodName);
         Object targetMethodResult = proceedingJoinPoint.proceed();
-        logger.info("DAO method: {} - has completed", methodName);
+        log.info("DAO method: {} - has completed", methodName);
         return targetMethodResult;
     }
 
@@ -65,9 +63,9 @@ public class PhoneShopLoggingAspect {
     public Object aroundAllServiceMethodsAdvice(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         MethodSignature methodSignature = (MethodSignature) proceedingJoinPoint.getSignature();
         String methodName = methodSignature.getName();
-        logger.info("Service method: {} - was called", methodName);
+        log.info("Service method: {} - was called", methodName);
         Object targetMethodResult = proceedingJoinPoint.proceed();
-        logger.info("Service method: {} - has completed", methodName);
+        log.info("Service method: {} - has completed", methodName);
         return targetMethodResult;
     }
 
@@ -82,9 +80,9 @@ public class PhoneShopLoggingAspect {
     public Object aroundAllControllerMethodsAdvice(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         MethodSignature methodSignature = (MethodSignature) proceedingJoinPoint.getSignature();
         String methodName = methodSignature.getName();
-        logger.info("Controller method: {} - was called", methodName);
+        log.info("Controller method: {} - was called", methodName);
         Object targetMethodResult = proceedingJoinPoint.proceed();
-        logger.info("Controller method: {} - has completed", methodName);
+        log.info("Controller method: {} - has completed", methodName);
         return targetMethodResult;
     }
 

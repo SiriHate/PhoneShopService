@@ -1,6 +1,7 @@
 package com.siri_hate.phone_shop_service.service;
 
-import com.siri_hate.phone_shop_service.dao.PhoneRepository;
+import com.siri_hate.phone_shop_service.model.Message;
+import com.siri_hate.phone_shop_service.repository.PhoneRepository;
 import com.siri_hate.phone_shop_service.dto.PhoneRequest;
 import com.siri_hate.phone_shop_service.dto.PhoneRequestMapper;
 import com.siri_hate.phone_shop_service.entity.Phone;
@@ -106,12 +107,14 @@ public class PhoneShopServiceImpl implements PhoneShopService {
      */
     @Override
     @Transactional
-    public void deletePhoneFromShop(int id) {
+    public Message deletePhoneFromShop(int id) {
         Optional<Phone> phone = phoneRepository.findById(id);
         if (phone.isPresent()) {
             phoneRepository.deleteById(id);
+            return new Message("The phone with the id = " + id + " has been successfully deleted!");
         } else {
             throw new NoSuchElementException("Phone with ID " + id + " not found");
         }
     }
+
 }

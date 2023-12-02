@@ -2,6 +2,7 @@ package com.siri_hate.phone_shop_service.controller;
 
 import com.siri_hate.phone_shop_service.dto.PhoneRequest;
 import com.siri_hate.phone_shop_service.entity.Phone;
+import com.siri_hate.phone_shop_service.model.Message;
 import com.siri_hate.phone_shop_service.service.PhoneShopService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Positive;
@@ -10,7 +11,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 /**
@@ -94,11 +94,11 @@ public class PhoneShopController {
      * @return ResponseEntity with HTTP status 204 (No Content) indicating a successful deletion.
      */
     @DeleteMapping("/phones/{id}")
-    public ResponseEntity<String> deletePhoneFromShop(
+    public ResponseEntity<Message> deletePhoneFromShop(
             @PathVariable @Positive(message = "ID should be greater than zero") int id
     ) {
-        phoneShopService.deletePhoneFromShop(id);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        Message message = phoneShopService.deletePhoneFromShop(id);
+        return new ResponseEntity<>(message, HttpStatus.OK);
     }
 
 }

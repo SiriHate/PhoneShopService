@@ -2,6 +2,7 @@ package com.siri_hate.phone_shop_service.service;
 
 import com.siri_hate.phone_shop_service.dto.PhoneRequest;
 import com.siri_hate.phone_shop_service.entity.Phone;
+import com.siri_hate.phone_shop_service.model.Message;
 
 import java.util.List;
 
@@ -48,6 +49,6 @@ public interface PhoneShopService {
      *
      * @param id The ID of the phone to delete.
      */
-    void deletePhoneFromShop(int id);
+    Message deletePhoneFromShop(int id);
 
 }
