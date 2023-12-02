@@ -103,6 +103,7 @@ public class PhoneShopServiceImpl implements PhoneShopService {
      * Deletes a phone from the shop based on the provided ID.
      *
      * @param id The ID of the phone to delete.
+     * @return A message indicating the successful deletion of the phone.
      * @throws NoSuchElementException if no phone is found with the specified ID.
      */
     @Override

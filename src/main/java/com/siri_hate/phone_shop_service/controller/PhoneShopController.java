@@ -91,7 +91,7 @@ public class PhoneShopController {
      * Endpoint for deleting a phone from the shop.
      *
      * @param id The ID of the phone to delete.
-     * @return ResponseEntity with HTTP status 204 (No Content) indicating a successful deletion.
+     * @return ResponseEntity with a message indicating the successful deletion and HTTP status 200 (OK).
      */
     @DeleteMapping("/phones/{id}")
     public ResponseEntity<Message> deletePhoneFromShop(

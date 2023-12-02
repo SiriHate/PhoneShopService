@@ -48,6 +48,7 @@ public interface PhoneShopService {
      * Deletes a phone from the shop based on the provided ID.
      *
      * @param id The ID of the phone to delete.
+     * @return A message indicating the result of the delete operation.
      */
     Message deletePhoneFromShop(int id);
 
